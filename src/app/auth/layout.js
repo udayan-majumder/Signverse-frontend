@@ -1,6 +1,5 @@
 
-
-export default function AuthLayout({children}){
+export default function AuthLayout({ children }) {
     return (
         <div>
             {children}
