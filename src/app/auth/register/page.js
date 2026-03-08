@@ -295,12 +295,101 @@ export default function RegisterPage() {
 
         .reg-bottom-text a:hover { text-decoration: underline; }
 
-        /* ── RESPONSIVE ── */
+        /* Mobile-only logo — hidden on desktop */
+        .reg-mobile-logo-top { display: none; }
+
+        /* ── MOBILE (≤ 768 px) ── */
         @media (max-width: 768px) {
-          .register-root { flex-direction: column; }
-          .reg-left  { flex: none; min-height: 280px; }
-          .reg-right { flex: none; padding: 36px 28px; }
-          .reg-mascot-img { width: 200px; }
+
+          .register-root {
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+          }
+
+          .reg-left {
+            flex: 0 0 30vh;
+            width: 100%;
+            background: linear-gradient(160deg, #fad4a8 0%, #f4895c 100%);
+            border-radius: 0 0 28px 28px;
+            padding: 8px 16px 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .reg-orange-circle { display: none; }
+
+          .reg-mobile-logo-top {
+            display: block;
+            width: 90px;
+            height: auto;
+            margin: 0 auto 3px;
+          }
+
+          .reg-left-content {
+            align-items: center;
+            padding-bottom: 0;
+            gap: 0;
+          }
+
+          .reg-greeting-text {
+            text-align: center;
+            align-self: center;
+            margin-left: 0;
+            margin-bottom: 1px;
+          }
+
+          .reg-greeting-text .line1 { font-size: 0.85rem; }
+          .reg-greeting-text .line2 { font-size: 1.05rem; }
+
+          .reg-mascot-img {
+            width: 95px;
+            margin-top: 0;
+          }
+
+          .reg-right {
+            flex: 1;
+            width: 100%;
+            padding: 12px 18px 10px;
+            align-items: stretch;
+            overflow-y: auto;
+          }
+
+          .reg-brand-logo-img { display: none; }
+          .reg-brand-tagline   { display: none; }
+
+          .reg-form {
+            max-width: 100%;
+            width: 100%;
+            margin-top: 0;
+            gap: 7px;
+          }
+
+          .reg-input-wrapper {
+            padding: 8px 12px;
+          }
+
+          .reg-btn-submit {
+            padding: 10px;
+            margin-top: 2px;
+          }
+
+          .reg-or-divider {
+            margin: 2px 0;
+            font-size: 0.78rem;
+          }
+
+          .reg-btn-social {
+            padding: 8px 14px;
+            font-size: 0.82rem;
+          }
+
+          .reg-bottom-text {
+            margin-top: 4px;
+            font-size: 0.78rem;
+          }
         }
       `}</style>
 
@@ -312,6 +401,16 @@ export default function RegisterPage() {
           <div className="reg-orange-circle" />
 
           <div className="reg-left-content">
+            {/* Logo — only visible on mobile, sits at top of orange panel */}
+            <Image
+              src="/SignVerse logo.png"
+              alt="Signverse"
+              width={160}
+              height={44}
+              className="reg-mobile-logo-top"
+              priority
+            />
+
             {/* Greeting text — adapted for new users */}
             <div className="reg-greeting-text">
               <span className="line1">Welcome aboard,</span>
